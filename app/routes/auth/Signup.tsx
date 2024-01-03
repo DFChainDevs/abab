@@ -1,8 +1,9 @@
-import { Link } from '@remix-run/react';
+import { Link, useNavigate } from '@remix-run/react';
 import Button from '~/components/Button';
 import FormInput from '~/components/FormInput';
 
 const Signup = () => {
+  const navigate = useNavigate();
   return (
     <>
       <h1 className='text-xl font-bold'>Create ABAB account</h1>
@@ -23,7 +24,12 @@ const Signup = () => {
         <FormInput label={'bank Owner Name'} placeholder='Enter Bank Owner Name...' />
       </div>
 
-      <Button className='bg-accent/80 hover:bg-accent rounded text-primary-text'>Sign Up</Button>
+      <Button
+        className='bg-accent/80 hover:bg-accent rounded text-primary-text'
+        onClick={() => navigate('/trade')}
+      >
+        Sign Up
+      </Button>
 
       <small className='text-xs mx-auto'>
         Have a ABAB account?{' '}

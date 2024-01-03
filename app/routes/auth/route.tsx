@@ -1,4 +1,4 @@
-import { useSearchParams } from '@remix-run/react';
+import { Link, useSearchParams } from '@remix-run/react';
 import apes from '~/assets/images/apes.png';
 import logoWithText from '~/assets/images/logo-with-text.png';
 import Signup from './Signup';
@@ -9,7 +9,13 @@ const Auth = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const type = searchParams.get('t');
   return (
-    <div className='flex gap-10 items-center px-32 py-20 h-screen'>
+    <div className='flex gap-10 items-center px-32 py-20 h-screen bg-main'>
+      <div className='absolute left-10 top-10'>
+        <Link to='/' className='hover:text-accent text-primary-text ease-in-out duration-300'>
+          Back to Home Page
+        </Link>
+      </div>
+
       <div className='flex items-center gap-5 max-w-[50%]'>
         <img src={apes} alt='Apes' className='w-[50%]' />
 

@@ -1,7 +1,8 @@
-import { ReactNode, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Navbar from './Navbar';
+import { Outlet } from '@remix-run/react';
 
-const Layout = ({ children }: { children: ReactNode }) => {
+const Public = () => {
   const [scrollTop, setScrollTop] = useState(0);
 
   useEffect(() => {
@@ -19,9 +20,11 @@ const Layout = ({ children }: { children: ReactNode }) => {
   return (
     <div className='bg-main h-full'>
       <Navbar scrollTop={scrollTop} />
-      <div className='overflow-auto scroll-smooth grow'>{children}</div>
+      <div className='overflow-auto scroll-smooth grow'>
+        <Outlet />
+      </div>
     </div>
   );
 };
 
-export default Layout;
+export default Public;

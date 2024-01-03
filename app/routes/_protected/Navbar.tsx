@@ -1,24 +1,19 @@
 import logo from '~/assets/images/abab.png';
-import Button from '../Button';
+import Button from '../../components/Button';
 import { twMerge } from 'tailwind-merge';
 import { useNavigate } from '@remix-run/react';
 
-interface Props {
-  scrollTop: number;
-}
-
-const Navbar = ({ scrollTop }: Props) => {
+const Navbar = () => {
   const navigate = useNavigate();
   return (
     <div
       className={twMerge(
-        'flex justify-between items-center p-5 bg-primary ease-in-out duration-300 fixed z-50 w-full',
-        scrollTop && 'bg-secondary/80'
+        'flex justify-between items-center p-5 bg-primary ease-in-out duration-300 fixed z-50 w-full border-b'
       )}
     >
       <img src={logo} className='h-10 cursor-pointer' onClick={() => navigate('/')} />
 
-      <div className='flex items-center gap-5'>
+      {/* <div className='flex items-center gap-5'>
         <Button onClick={() => navigate('/auth?t=login')}>Login</Button>
         <Button
           onClick={() => navigate('/auth?t=signup')}
@@ -26,7 +21,7 @@ const Navbar = ({ scrollTop }: Props) => {
         >
           Join Now
         </Button>
-      </div>
+      </div> */}
     </div>
   );
 };
